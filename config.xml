@@ -1,0 +1,12 @@
+<?xml version='1.0' encoding='utf-8'?>
+<widget id="com.phonegap.sashabrava.notes" version="0.0.1 beta" xmlns="http://www.w3.org/ns/widgets" xmlns:gap="http://phonegap.com/ns/1.0">
+   	<name>Notes</name>
+    <description>
+        Notes app.
+    </description>
+    <author email="sashabrava0@gmail.com" href="http://gmail.com">
+        Sashabrava
+    </author>
+    <content src="index.html" />
+    <access origin="*" />
+</widget>
