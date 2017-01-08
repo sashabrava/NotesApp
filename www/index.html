@@ -7,14 +7,16 @@
 		<script type="text/javascript" charset="utf-8" src="note.js"></script>
 		<script type="text/javascript" charset="utf-8" src="index.js"></script>
 		<script type="text/javascript" charset="utf-8" src="cordova.js"></script>
+		<link rel="stylesheet" href="styles.css">
+		<link rel="stylesheet" href="bootstrap.min.css">
     </head>
  <body onload="onLoad();">
  <div>
-        <h1>Welcome to the notes app</h1>
-        <h2>Here you can create and manage your notes</h2>
+        <h1 class="mainText" style=" text-align:center">Welcome to the notes app</h1>
+        <h2 class="secondaryText" style=" text-align:center">Here you can create and manage your notes</h2>
 		</div>
-        <button name="add" onclick="newNote();">Add note</button>
-		</p>
+		<div class="col-xs-1"></div>
+        <button name="add" onclick="newNote();" class="btn btn-success col-xs-10 secondaryText">Add note</button>
 		<div id="result"></div>
   </body>
 </html>

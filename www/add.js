@@ -10,13 +10,15 @@ function onLoad() {
     if (isNaN(newObject)) {
         button.textContent = "Create";
         button.onclick = create;
+		
 
     } else {
         button.textContent = "Save";
-
+		document.getElementById("mainText").innerHTML = "Editing existing note";
         button.onclick = update;
         fillIn();
     }
+	button.className = "btn btn-success col-xs-4";
     document.body.appendChild(button);
 
 }
