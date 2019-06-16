@@ -1,0 +1,20 @@
+<html>
+	<head>
+		<script type="text/javascript" charset="utf-8" src="note.js"></script>
+		<script type="text/javascript" charset="utf-8" src="add-or-edit.js"></script>
+		<link rel="stylesheet" href="styles.css">
+		<link rel="stylesheet" href="bootstrap.min.css">
+	</head>
+	<body onload = "onLoad();">
+		<div class="container" id="container">
+			<h1 class="mainText" id="mainText" style="text-align:center">Creating new note</h1>
+			<label for="noteTitle" class="addNote">Title:</label>
+			<input type="text" id="noteTitle" class="form-control">
+			<label for="noteBody" class="addNote">Body:</label>
+			<textarea id="noteBody" rows="4" class="form-control"></textarea>
+			<div class="row custom-p-m" id="button-row">
+				<button name="home" onclick="history.back();" class="btn btn-primary col-xs-4" >Home</button>
+			</div>
+		</div>
+	</body>
+</html>

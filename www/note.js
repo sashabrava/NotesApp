@@ -1,3 +1,4 @@
+//JS file for managing Phonegap database
 function Notes() {
     this.db = window.openDatabase("notes", "1.0", "Notes DB", 200000);
     this.db.transaction(initDB, errorCB, successCB);
@@ -12,7 +13,7 @@ function errorCB(err) {
 }
 
 function successCB() {
-    console.log("success!");
+    //console.log("success!");
 }
 function populateDB(tx) {
     tx.executeSql('DROP TABLE IF EXISTS NOTE');

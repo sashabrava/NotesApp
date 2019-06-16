@@ -1,41 +1,37 @@
 var notes;
 function onLoad() {
     notes = new Notes();
-	showAll();
+	notes.getEntries(fillInList);
 }
 
 function newNote() {
-    console.log("button_clicked");
-    window.location = "add.html";
-}
-
-function showAll() {
-    notes.getEntries(fillInList);
+    //Event listener for pushing "Add note" button
+    window.location = "add-or-edit.html";
 }
 
 function fillInList(resultDB) {
-    console.log("get db entries");
-    var list = document.getElementById("result");
+    //Function for adding Notes from database on the page
+    var list = document.getElementById("list");
     list.innerHTML = "";
     for (var i = 0; i < resultDB.length; i++) {
         var index = resultDB[i].id;
-        var li = document.createElement("div");
-		li.className = "body col-xs-12";
-		 var textDiv = document.createElement("div");
-		 var titleDiv = document.createElement("div");
-		 var bodyDiv = document.createElement("div");
-		 titleDiv.className = "titleDiv col-xs-12";
-		 bodyDiv.className = "bodyDiv col-xs-12";
-		  var textTitle = "" + (i+1) + ".) " + resultDB[i].title ;
-		 titleDiv.textContent = textTitle;
-		 
-        var textBody = resultDB[i].body;
+		//filling in note data
+        var elementDiv = document.createElement("div");
+		var textDiv = document.createElement("div");
+		var titleDiv = document.createElement("div");
+		var bodyDiv = document.createElement("div");
+		elementDiv.className = "col-xs-12";
+		titleDiv.className = "noteTitleDiv col-xs-12";
+		bodyDiv.className = "noteBodyDiv col-xs-12";
+		var textTitle = "" + (i+1) + ".) " + resultDB[i].title ;
+		var textBody = resultDB[i].body;
+		titleDiv.textContent = textTitle;
 		bodyDiv.textContent = textBody; 
 		textDiv.appendChild(titleDiv);
 		textDiv.appendChild(bodyDiv);
+		//adding buttons
         var buttonDelete = document.createElement("button");
-		
-		li.appendChild(textDiv);
+		elementDiv.appendChild(textDiv);
         buttonDelete.setAttribute("data-DB", index);
         buttonDelete.textContent = "Delete";
 		buttonDelete.className = "btn btn-danger col-xs-5";
@@ -55,16 +51,17 @@ function fillInList(resultDB) {
             edit(parseInt(this.getAttribute("data-db")));
         };
         buttonsDiv.appendChild(buttonEdit);
-		li.appendChild(buttonsDiv);
-        list.appendChild(li);
-        li.appendChild(document.createElement("p"));
+		elementDiv.appendChild(buttonsDiv);
+        list.appendChild(elementDiv);
     }
 }
 function edit(id) {
-    window.location = "add.html?new=" + id;
+	//Event listener for "Edit" button
+    window.location = "add-or-edit.html?edited=" + id;
 }
 
 function remove(id) {
+	//Event listener for "Remove" button
     notes.remove(id);
-	showAll();
+	notes.getEntries(fillInList);
 }
